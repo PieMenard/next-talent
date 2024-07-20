@@ -17,7 +17,7 @@ const AddTalent = () => {
         <textarea
           name="skills"
           className="w-full h-24 font-normal outline outline-0 focus:outline-0 transition-all border focus:border-2 text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
-        ></textarea>
+        />
         <Button>Submit</Button>
       </form>
     </div>
