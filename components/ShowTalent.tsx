@@ -23,6 +23,7 @@ import { Label } from '@/components/ui/label';
 import { deleteTalent } from '@/app/actions/deleteTalent';
 import { useState } from 'react';
 import { editTalent } from '@/app/actions/editTalent';
+import Link from 'next/link';
 
 const ShowTalent = ({ talentData }: { talentData: Talent }) => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -136,8 +137,13 @@ const ShowTalent = ({ talentData }: { talentData: Talent }) => {
               <DialogFooter></DialogFooter>
             </DialogContent>
           </Dialog>
-          {/* Edit */}
           {/* Hire Button */}
+          <Link
+            className="bg-blue-500 px-6 py-2 rounded text-white"
+            href={`mailto:${talentData.email}`}
+          >
+            Hire Me
+          </Link>
         </CardContent>
       </Card>
     </div>
