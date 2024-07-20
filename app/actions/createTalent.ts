@@ -1,6 +1,7 @@
 'use server';
 
 import { prisma } from '@/utils/prisma';
+import { revalidatePath } from 'next/cache';
 
 export async function createTalent(formData: FormData) {
   const name = formData.get('name') as string | null;
@@ -20,4 +21,5 @@ export async function createTalent(formData: FormData) {
       skills,
     },
   });
+  revalidatePath('/');
 }
