@@ -22,6 +22,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { deleteTalent } from '@/app/actions/deleteTalent';
 import { useState } from 'react';
+import { editTalent } from '@/app/actions/editTalent';
 
 const ShowTalent = ({ talentData }: { talentData: Talent }) => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -52,13 +53,20 @@ const ShowTalent = ({ talentData }: { talentData: Talent }) => {
             </form>
           </div>
           {/* Dialog */}
-          <Dialog open={openDialog}>
+          <Dialog
+            open={openDialog}
+            onOpenChange={() => setOpenDialog(!openDialog)}
+          >
             <DialogTrigger asChild>
               <Button variant="outline">Edit Profile</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent
+              className="sm:max-w-[425px]"
+              aria-describedby={undefined}
+            >
+              <DialogTitle className="text-center">Edit Talent</DialogTitle>
               <DialogHeader>
-                <form action="">
+                <form action={editTalent}>
                   <div className="w-full gap-4 py-4">
                     <div className="flex flex-col items-center gap-4">
                       <Label htmlFor="name">Name</Label>
@@ -111,6 +119,11 @@ const ShowTalent = ({ talentData }: { talentData: Talent }) => {
                         value={updatedData.skills}
                         name="skills"
                         className="w-full h-24 font-normal outline outline-0 focus:outline-0 transition-all border focus:border-2 text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
+                      />
+                      <Input
+                        type="hidden"
+                        name="inputID"
+                        value={talentData.id}
                       />
                     </div>
                   </div>
