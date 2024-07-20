@@ -1,3 +1,4 @@
+import { createTalent } from '@/app/actions/createTalent';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -5,7 +6,7 @@ import { Label } from './ui/label';
 const AddTalent = () => {
   return (
     <div className="w-full mt-8">
-      <form action="" className="flex flex-col gap-2">
+      <form action={createTalent} className="flex flex-col gap-2">
         <Label htmlFor="name">Name</Label>
         <Input type="text" name="name"></Input>
         <Label htmlFor="email">Email</Label>
